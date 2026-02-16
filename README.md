@@ -2,7 +2,7 @@
 
 A fully functional e-commerce website built with HTML, Tailwind CSS, and Vanilla JavaScript.
 
-🌐 [Live Link](https://willowy-bublanina-f7b3e0.netlify.app/s)
+🌐 [Live Link](https://willowy-bublanina-f7b3e0.netlify.app/)
 
 📁 GitHub Repository
 
@@ -40,7 +40,6 @@ https://github.com/munyimJR/SwiftCart-E-Commerce-Website.git
 2. Open `index.html` in any modern browser
 3. Or use Live Server extension in VS Code
 
-
 📝 Questions & Answers
 
 1. What is the difference between `null` and `undefined`?
@@ -53,14 +52,12 @@ Both `null` and `undefined` represent absence of value but are used differently.
 
 Key Difference: `undefined` is system-assigned, while `null` is programmer-assigned.
 
-
 2. What is the use of the `map()` function in JavaScript? How is it different from `forEach()`?
 
 `map()`: Transforms each element of an array and returns a new array without modifying the original.
 Example:
 const numbers = [1, 2, 3];
-const doubled = numbers.map((n) => n * 2); // [2, 4, 6]
-
+const doubled = numbers.map((n) => n \* 2); // [2, 4, 6]
 
 `forEach()`: Iterates over array elements to perform operations but returns `undefined`. Used for side effects like console logging or DOM updates.
 
@@ -69,7 +66,6 @@ numbers.forEach((n) => console.log(n)); // No return value
 
 Difference: `map()` returns a new transformed array and is chainable. `forEach()` only executes code without returning anything. Use `map()` for data transformation, `forEach()` for performing actions.
 
-
 3. What is the difference between `==` and `===`?
 
 `==` (Loose Equality): Compares values after type coercion (automatic type conversion).
@@ -77,32 +73,31 @@ Difference: `map()` returns a new transformed array and is chainable. `forEach()
 Example:
 5 == "5"; // true (string converted to number)
 
-
 `===` (Strict Equality): Compares both value and type without conversion.
 
 Example:
 5 === "5"; // false (different types)
 5 === 5; // true (same value and type)
 
-
 4. What is the significance of `async`/`await` in fetching API data?
 
 `async`/`await` simplifies asynchronous JavaScript code by making it look synchronous and easier to read.
 
 How it works:
+
 - `async` keyword marks a function as asynchronous
 - `await` pauses execution until a promise resolves
 
 Example:
 
 async function fetchProducts() {
-  try {
-    const response = await fetch("https://fakestoreapi.com/products");
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error:", error);
-  }
+try {
+const response = await fetch("https://fakestoreapi.com/products");
+const data = await response.json();
+return data;
+} catch (error) {
+console.error("Error:", error);
+}
 }
 
 5. Explain the concept of Scope in JavaScript (Global, Function, Block).
@@ -114,7 +109,7 @@ Global Scope: Variables declared outside any function/block, accessible everywhe
 let cart = []; // Accessible throughout the application
 Example:
 function calculate() {
-  let sum = 10; // Only accessible inside calculate()
+let sum = 10; // Only accessible inside calculate()
 }
 
 function Scope:In JavaScript, function scope (also known as local scope) refers to the visibility and accessibility of variables defined inside a function. These variables can only be accessed within that function and are hidden from the outside world
@@ -123,10 +118,10 @@ example:
 let globalVar = "I'm everywhere";
 
 function scopeTest() {
-  let localVar = "I'm hidden";
-  
-  console.log(globalVar); //Works (can look outward)
-  console.log(localVar);  //Works (inside own scope)
+let localVar = "I'm hidden";
+
+console.log(globalVar); //Works (can look outward)
+console.log(localVar); //Works (inside own scope)
 }
 
 scopeTest();
@@ -136,8 +131,7 @@ console.log(localVar); //Uncaught ReferenceError: localVar is not defined
 Block Scope: Variables declared with `let`/`const` inside `{}`, only accessible within that block.
 
 if (true) {
-  let temp = 5; // Only accessible inside this block
+let temp = 5; // Only accessible inside this block
 }
-
 
 Note:All answers are written based on personal understanding and practical experience working with JavaScript.
