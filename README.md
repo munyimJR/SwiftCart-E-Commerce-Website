@@ -117,6 +117,21 @@ function calculate() {
   let sum = 10; // Only accessible inside calculate()
 }
 
+function Scope:In JavaScript, function scope (also known as local scope) refers to the visibility and accessibility of variables defined inside a function. These variables can only be accessed within that function and are hidden from the outside world
+
+example:
+let globalVar = "I'm everywhere";
+
+function scopeTest() {
+  let localVar = "I'm hidden";
+  
+  console.log(globalVar); //Works (can look outward)
+  console.log(localVar);  //Works (inside own scope)
+}
+
+scopeTest();
+
+console.log(localVar); //Uncaught ReferenceError: localVar is not defined
 
 Block Scope: Variables declared with `let`/`const` inside `{}`, only accessible within that block.
 
@@ -124,8 +139,5 @@ if (true) {
   let temp = 5; // Only accessible inside this block
 }
 
-Scope Chain: JavaScript searches for variables starting from the current scope, moving outward to parent scopes until reaching global scope.
-
-Best Practice: Use `let`/`const` instead of `var`. Keep variables in the smallest scope possible to avoid conflicts and maintain clean code.
 
 Note:All answers are written based on personal understanding and practical experience working with JavaScript.
