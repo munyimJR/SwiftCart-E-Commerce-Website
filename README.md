@@ -2,7 +2,7 @@
 
 A fully functional e-commerce website built with HTML, Tailwind CSS, and Vanilla JavaScript.
 
-🌐 [Live Link](https://munyimjr.github.io/SwiftCart-E-Commerce-Website/)
+🌐 [Live Link](https://willowy-bublanina-f7b3e0.netlify.app/s)
 
 📁 GitHub Repository
 
