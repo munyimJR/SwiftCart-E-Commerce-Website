@@ -2,13 +2,11 @@
 
 A fully functional e-commerce website built with HTML, Tailwind CSS, and Vanilla JavaScript.
 
-🌐 Live Link
-
-[Your Deployed URL Here]
+🌐 [Live Link](https://munyimjr.github.io/SwiftCart-E-Commerce-Website/)
 
 📁 GitHub Repository
 
-[Your Repository URL Here]
+https://github.com/munyimJR/SwiftCart-E-Commerce-Website.git
 
 ✨ Features
 
@@ -42,68 +40,92 @@ A fully functional e-commerce website built with HTML, Tailwind CSS, and Vanilla
 2. Open `index.html` in any modern browser
 3. Or use Live Server extension in VS Code
 
----
 
 📝 Questions & Answers
 
 1. What is the difference between `null` and `undefined`?
 
-Think of it this way - both `null` and `undefined` mean "no value," but they're used differently in JavaScript.
+Both `null` and `undefined` represent absence of value but are used differently.
 
-When you declare a variable but don't assign any value to it, JavaScript automatically gives it the value `undefined`. For example, if you write `let name;` and then check its value, you'll get `undefined`. It's basically JavaScript saying "Hey, I know this variable exists, but I don't know what value it should have." You also get `undefined` when a function doesn't return anything, or when you try to access an object property that doesn't exist.
+`undefined`: Automatically assigned by JavaScript when a variable is declared but not initialized. Example: `let name;` results in `undefined`. Also returned when accessing non-existent object properties or when functions don't explicitly return a value.
 
-On the other hand, `null` is something you intentionally set as a programmer. When you assign `null` to a variable, you're explicitly saying "This variable exists, and I want it to be empty right now." It's a conscious choice to represent "no value" rather than JavaScript deciding it for you.
+`null`: Explicitly assigned by programmers to represent intentional absence of value. Example: `let user = null;` indicates a deliberate empty state.
 
-So in simple terms: `undefined` means "the system doesn't know the value," while `null` means "I, the programmer, am deliberately setting this to have no value."
+Key Difference: `undefined` is system-assigned, while `null` is programmer-assigned.
 
----
 
 2. What is the use of the `map()` function in JavaScript? How is it different from `forEach()`?
 
-The `map()` function is really handy when you want to transform an array into a new array. It goes through each element, applies a function to it, and creates a brand new array with the transformed values. The original array stays untouched. For instance, if you have an array of numbers `[1, 2, 3]` and you want to double each number, `map()` will give you a new array `[2, 4, 6]`.
+`map()`: Transforms each element of an array and returns a new array without modifying the original.
+Example:
+const numbers = [1, 2, 3];
+const doubled = numbers.map((n) => n * 2); // [2, 4, 6]
 
-Now, `forEach()` is different - it just loops through the array and lets you do something with each element, but it doesn't create or return anything. It gives back `undefined`. You'd use `forEach()` when you just want to perform an action for each item, like printing values to the console or updating the DOM.
 
-The key difference? `map()` gives you a new array that you can use or chain further methods on, while `forEach()` is just for executing code without returning anything. If you need transformed data, use `map()`. If you just need to do something with each item, use `forEach()`.
+`forEach()`: Iterates over array elements to perform operations but returns `undefined`. Used for side effects like console logging or DOM updates.
 
----
+Example:
+numbers.forEach((n) => console.log(n)); // No return value
+
+Difference: `map()` returns a new transformed array and is chainable. `forEach()` only executes code without returning anything. Use `map()` for data transformation, `forEach()` for performing actions.
+
 
 3. What is the difference between `==` and `===`?
 
-This is super important for writing bug-free code! The double equals `==` is called "loose equality" because it only cares about the value, not the type. If you compare `5 == "5"`, JavaScript will convert the string to a number behind the scenes and say "yes, they're equal!" This automatic type conversion can sometimes lead to unexpected results.
+`==` (Loose Equality): Compares values after type coercion (automatic type conversion).
 
-The triple equals `===` is called "strict equality" and it's much more careful. It checks both the value AND the type. So `5 === "5"` will be `false` because even though they look similar, one is a number and the other is a string. No sneaky type conversion happens here.
+Example:
+5 == "5"; // true (string converted to number)
 
-As a best practice, you should almost always use `===` because it prevents weird bugs where things that shouldn't be equal get treated as equal. It makes your code more predictable and safer. The only time you might use `==` is when you specifically want that type conversion behavior, but that's pretty rare.
 
----
+`===` (Strict Equality): Compares both value and type without conversion.
+
+Example:
+5 === "5"; // false (different types)
+5 === 5; // true (same value and type)
+
 
 4. What is the significance of `async`/`await` in fetching API data?
 
-`async`/`await` is a modern way to handle asynchronous operations in JavaScript, and it makes your code so much easier to read and understand! Before `async`/`await`, we had to use promises with `.then()` chains, which could get messy and hard to follow.
+`async`/`await` simplifies asynchronous JavaScript code by making it look synchronous and easier to read.
 
-When you mark a function as `async`, it means that function will work with asynchronous operations. The `await` keyword lets you wait for a promise to complete before moving to the next line. This makes your code look and behave like synchronous code, even though it's actually waiting for things to happen in the background.
+How it works:
+- `async` keyword marks a function as asynchronous
+- `await` pauses execution until a promise resolves
 
-The benefits are huge: your code becomes more readable, error handling is cleaner with `try-catch` blocks, debugging is easier, and you can chain multiple API calls in a logical sequence. For example, in this project, when we fetch products from the API, we use `await` to wait for the response, then `await` again to parse the JSON, and only then display the products. It's straightforward and easy to understand what's happening at each step.
+Example:
 
-Without `async`/`await`, this would be a nested mess of callbacks or promise chains. It's especially helpful when managing loading states and handling errors gracefully, which makes for a better user experience overall.
-
----
+async function fetchProducts() {
+  try {
+    const response = await fetch("https://fakestoreapi.com/products");
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
 
 5. Explain the concept of Scope in JavaScript (Global, Function, Block).
 
-Scope is all about where in your code you can access certain variables. Think of it like different rooms in a house - some things are accessible everywhere, and some things are only available in specific rooms.
+Scope determines the accessibility of variables in different parts of code.
 
-**Global Scope** is like the living room of your code - everything declared outside of any function or block lives here. These variables can be accessed from anywhere in your program. For example, in our project, we have global variables like `allProducts` and `cart` that need to be accessible throughout the entire application.
+Global Scope: Variables declared outside any function/block, accessible everywhere in the program.
 
-**Function Scope** is like a private bedroom - what's declared inside stays inside. When you create a variable inside a function using `var`, `let`, or `const`, it only exists within that function. Once the function finishes running, those variables are gone. This is great for keeping data contained and preventing accidental changes from other parts of your code.
+let cart = []; // Accessible throughout the application
+Example:
+function calculate() {
+  let sum = 10; // Only accessible inside calculate()
+}
 
-**Block Scope** is even more specific - it's like a closet within that bedroom. When you use `let` or `const` inside curly braces `{}` (like in an `if` statement or `for` loop), those variables only exist within that block. This is one reason why we prefer `let` and `const` over `var` - they respect block scope, while `var` doesn't.
 
-JavaScript also has something called "scope chain" - if it can't find a variable in the current scope, it looks in the outer scope, then the next outer scope, and so on until it reaches the global scope. If it still doesn't find it, you get an error.
+Block Scope: Variables declared with `let`/`const` inside `{}`, only accessible within that block.
 
-Best practice? Keep your variables in the smallest scope possible. Use `let` and `const` instead of `var`, and avoid cluttering the global scope. This makes your code cleaner, safer, and easier to debug.
+if (true) {
+  let temp = 5; // Only accessible inside this block
+}
 
----
+Scope Chain: JavaScript searches for variables starting from the current scope, moving outward to parent scopes until reaching global scope.
 
-**Note:** All answers are written based on personal understanding and practical experience working with JavaScript.
+Best Practice: Use `let`/`const` instead of `var`. Keep variables in the smallest scope possible to avoid conflicts and maintain clean code.
+
+Note:All answers are written based on personal understanding and practical experience working with JavaScript.
